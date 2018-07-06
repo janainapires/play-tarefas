@@ -1,0 +1,84 @@
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:10:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class ObjectNode[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:10:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Json[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:12:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class Tarefa[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        Tarefa tarefa = new Tarefa();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:12:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class Tarefa[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        Tarefa tarefa = new Tarefa();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:13:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        tarefa.id = (long) tarefas.values().size();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:19:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        tarefas.put(tarefa.id, tarefa);[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:28:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class ObjectNode[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:28:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Json[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:30:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        if(tarefas.containsKey(id)) {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:31:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m            tarefas.remove(id);[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:40:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class ObjectNode[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:40:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Json[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode response = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:42:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        if(tarefas.containsKey(id)) {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:43:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class Tarefa[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m            Tarefa tarefa = tarefas.get(id);[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:43:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m            Tarefa tarefa = tarefas.get(id);[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:53:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class ObjectNode[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode node = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:53:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Json[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ObjectNode node = Json.newObject();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:54:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class ArrayNode[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        ArrayNode response = node.arrayNode();[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:55:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable tarefas[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        for (Tarefa tarefa : tarefas.values()) {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:55:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class Tarefa[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m        for (Tarefa tarefa : tarefas.values()) {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\wkp_play\tarefas\app\controllers\Servico.java:56:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable Json[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class controllers.Servico[0m
+[0m[[0m[31merror[0m] [0m[0m            node = Json.newObject();[0m
