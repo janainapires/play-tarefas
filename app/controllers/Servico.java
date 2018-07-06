@@ -1,74 +1,83 @@
 package controllers;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Tarefa;
 import play.libs.Json;
+import play.mvc.BodyParser;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
+import utils.Util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Servico extends Controller {
 
     Map<Long, Tarefa> tarefas = new HashMap<Long, Tarefa>();
 
+
     public  Result adicionar() {
-        ObjectNode response = Json.newObject();
+        JsonNode json = request().body().asJson();
+        if (json == null){
+            return badRequest(Util.createResponse(
+                    "Expecting Json data", false));
+        }
+        Tarefa tarefa = TarefaStore.getInstance().addTarefa(
+                (Tarefa) Json.fromJson(json, Tarefa.class));
+        JsonNode jsonObject = Json.toJson(tarefa);
+        return created(Util.createResponse(jsonObject, true));
 
-        Tarefa tarefa = new Tarefa();
-        tarefa.id = (long) tarefas.values().size();
-        tarefa.descricao = request().body().asMultipartFormData()
-                .asFormUrlEncoded().get("descricao")[0];
-        tarefa.titulo = request().body().asMultipartFormData()
-                .asFormUrlEncoded().get("titulo")[0];
-        tarefa.completada = false;
-        tarefas.put(tarefa.id, tarefa);
-
-        response.put("id", tarefa.id);
-        response.put("resposta", "Tarefa Adicionada com Sucesso!");
-
-        return ok(response);
     }
 
     public  Result excluir(Long id) {
-        ObjectNode response = Json.newObject();
-
-        if(tarefas.containsKey(id)) {
-            tarefas.remove(id);
-            response.put("resposta", "Tarefa excluída com sucesso!");
-        } else {
-            response.put("resposta", "Tarefa não encontrada.");
+        boolean status = TarefaStore.getInstance().deleteTarefa(id);
+        if (!status) {
+            return notFound(Util.createResponse(
+                    "Tarefa com id:" + id + " não encontrada", false));
         }
-        return ok(response);
+        return ok(Util.createResponse(
+                "Tarefa com id:" + id + " deletada", true));
     }
 
-    public  Result completar(Long id) {
-        ObjectNode response = Json.newObject();
-
-        if(tarefas.containsKey(id)) {
-            Tarefa tarefa = tarefas.get(id);
-            tarefa.completada = true;
-            response.put("resposta", "Tarefa completada com sucesso!");
-        } else {
-            response.put("resposta", "Tarefa não encontrada.");
+    public Result pesquisar(Long id) {
+        Tarefa tarefa = TarefaStore.getInstance().getTarefa(id);
+        if (tarefa == null) {
+            return notFound(Util.createResponse(
+                    "Tarefa com id:" + id + " não encontrada", false));
         }
-        return ok(response);
+        JsonNode jsonObjects = Json.toJson(tarefa);
+        return ok(Util.createResponse(jsonObjects, true));
+    }
+
+    public  Result atualizar() {
+        JsonNode json = request().body().asJson();
+        if (json == null){
+            return badRequest(Util.createResponse(
+                    "Expecting Json data", false));
+        }
+        Tarefa tarefa = TarefaStore.getInstance().updateTarefa(
+                (Tarefa) Json.fromJson(json, Tarefa.class));
+        if (tarefa == null) {
+            return notFound(Util.createResponse(
+                    "Tarefa não encontrada", false));
+        }
+
+        JsonNode jsonObject = Json.toJson(tarefa);
+        return ok(Util.createResponse(jsonObject, true));
     }
 
     public  Result listar () {
-        ObjectNode node = Json.newObject();
-        ArrayNode response = node.arrayNode();
-        for (Tarefa tarefa : tarefas.values()) {
-            node = Json.newObject();
-            node.put("id", tarefa.id);
-            node.put("titulo", tarefa.titulo);
-            node.put("descricao", tarefa.descricao);
-            node.put("completada", tarefa.completada);
-            response.add(node);
-        }
-        return ok(response);
+        Set<Tarefa> result = TarefaStore.getInstance().getAllTarefas();
+        ObjectMapper mapper = new ObjectMapper();
+
+        JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
+        return ok(Util.createResponse(jsonData, true));
     }
 
 }

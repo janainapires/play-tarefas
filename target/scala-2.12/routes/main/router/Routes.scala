@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/wkp_play/tarefas/conf/routes
-// @DATE:Fri Jul 06 09:24:16 GMT-03:00 2018
+// @DATE:Fri Jul 06 13:07:55 GMT-03:00 2018
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_0: controllers.HomeController,
   // @LINE:7
   Servico_2: controllers.Servico,
-  // @LINE:14
+  // @LINE:15
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_0: controllers.HomeController,
     // @LINE:7
     Servico_2: controllers.Servico,
-    // @LINE:14
+    // @LINE:15
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_0, Servico_2, Assets_1, "/")
 
@@ -45,9 +45,10 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas""", """controllers.HomeController.index()"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/excluir/""" + "$" + """id<[^/]+>""", """controllers.Servico.excluir(id:Long)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/completar/""" + "$" + """id<[^/]+>""", """controllers.Servico.completar(id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/atualizar""", """controllers.Servico.atualizar()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/listar""", """controllers.Servico.listar()"""),
-    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/adicionar""", """controllers.Servico.adicionar()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/adicionar""", """controllers.Servico.adicionar()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tarefas/pesquisar/""" + "$" + """id<[^/]+>""", """controllers.Servico.pesquisar(id:Long)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -93,18 +94,18 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_Servico_completar2_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("tarefas/completar/"), DynamicPart("id", """[^/]+""",true)))
+  private[this] lazy val controllers_Servico_atualizar2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("tarefas/atualizar")))
   )
-  private[this] lazy val controllers_Servico_completar2_invoker = createInvoker(
-    Servico_2.completar(fakeValue[Long]),
+  private[this] lazy val controllers_Servico_atualizar2_invoker = createInvoker(
+    Servico_2.atualizar(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Servico",
-      "completar",
-      Seq(classOf[Long]),
+      "atualizar",
+      Nil,
       "POST",
-      this.prefix + """tarefas/completar/""" + "$" + """id<[^/]+>""",
+      this.prefix + """tarefas/atualizar""",
       """""",
       Seq()
     )
@@ -129,7 +130,7 @@ class Routes(
   )
 
   // @LINE:10
-  private[this] lazy val controllers_Servico_adicionar4_route = Route("PUT",
+  private[this] lazy val controllers_Servico_adicionar4_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("tarefas/adicionar")))
   )
   private[this] lazy val controllers_Servico_adicionar4_invoker = createInvoker(
@@ -139,18 +140,36 @@ class Routes(
       "controllers.Servico",
       "adicionar",
       Nil,
-      "PUT",
+      "POST",
       this.prefix + """tarefas/adicionar""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_Assets_versioned5_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_Servico_pesquisar5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("tarefas/pesquisar/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_Servico_pesquisar5_invoker = createInvoker(
+    Servico_2.pesquisar(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Servico",
+      "pesquisar",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """tarefas/pesquisar/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:15
+  private[this] lazy val controllers_Assets_versioned6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned5_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned6_invoker = createInvoker(
     Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -180,9 +199,9 @@ class Routes(
       }
   
     // @LINE:8
-    case controllers_Servico_completar2_route(params@_) =>
-      call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_Servico_completar2_invoker.call(Servico_2.completar(id))
+    case controllers_Servico_atualizar2_route(params@_) =>
+      call { 
+        controllers_Servico_atualizar2_invoker.call(Servico_2.atualizar())
       }
   
     // @LINE:9
@@ -197,10 +216,16 @@ class Routes(
         controllers_Servico_adicionar4_invoker.call(Servico_2.adicionar())
       }
   
-    // @LINE:14
-    case controllers_Assets_versioned5_route(params@_) =>
+    // @LINE:11
+    case controllers_Servico_pesquisar5_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_Servico_pesquisar5_invoker.call(Servico_2.pesquisar(id))
+      }
+  
+    // @LINE:15
+    case controllers_Assets_versioned6_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned5_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned6_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }

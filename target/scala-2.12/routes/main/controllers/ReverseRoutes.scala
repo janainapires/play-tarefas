@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/wkp_play/tarefas/conf/routes
-// @DATE:Fri Jul 06 09:24:16 GMT-03:00 2018
+// @DATE:Fri Jul 06 13:07:55 GMT-03:00 2018
 
 import play.api.mvc.Call
 
@@ -26,14 +26,14 @@ package controllers {
   
   }
 
-  // @LINE:14
+  // @LINE:15
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:14
+    // @LINE:15
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
@@ -48,10 +48,22 @@ package controllers {
     }
 
   
-    // @LINE:7
-    def excluir(id:Long): Call = {
+    // @LINE:8
+    def atualizar(): Call = {
       
-      Call("DELETE", _prefix + { _defaultPrefix } + "tarefas/excluir/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+      Call("POST", _prefix + { _defaultPrefix } + "tarefas/atualizar")
+    }
+  
+    // @LINE:10
+    def adicionar(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "tarefas/adicionar")
+    }
+  
+    // @LINE:11
+    def pesquisar(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "tarefas/pesquisar/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:9
@@ -60,16 +72,10 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "tarefas/listar")
     }
   
-    // @LINE:8
-    def completar(id:Long): Call = {
+    // @LINE:7
+    def excluir(id:Long): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "tarefas/completar/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
-    }
-  
-    // @LINE:10
-    def adicionar(): Call = {
-      
-      Call("PUT", _prefix + { _defaultPrefix } + "tarefas/adicionar")
+      Call("DELETE", _prefix + { _defaultPrefix } + "tarefas/excluir/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
   }
