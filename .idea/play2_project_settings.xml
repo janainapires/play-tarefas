@@ -6,7 +6,8 @@
         <entry key="myProject">
           <value>
             <ProjectSettingsEntry>
-              <option name="confDir" value="C:\wkp_play\tarefas\app" />
+              <option name="sourceDir" value="C:\Users\jcosta\eclipse-workspace\play-tarefas\app" />
+              <option name="confDir" value="C:\Users\jcosta\eclipse-workspace\play-tarefas\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -37,7 +38,14 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/wkp_play/tarefas" />
+              <option name="uri" value="/C:/Users/jcosta/eclipse-workspace/play-tarefas" />
+            </ProjectSettingsEntry>
+          </value>
+        </entry>
+        <entry key="play-tarefas_5901">
+          <value>
+            <ProjectSettingsEntry>
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.12/jars/play_2.12-2.6.15.jar" />
             </ProjectSettingsEntry>
           </value>
         </entry>

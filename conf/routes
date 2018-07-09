@@ -5,7 +5,7 @@
 # An example controller showing a sample home page
 GET /tarefas                        controllers.HomeController.index()
 DELETE /tarefas/excluir/:id         controllers.Servico.excluir(id: Long)
-POST /tarefas/atualizar         controllers.Servico.atualizar()
+POST /tarefas/atualizar             controllers.Servico.atualizar()
 GET /tarefas/listar                 controllers.Servico.listar()
 POST /tarefas/adicionar             controllers.Servico.adicionar()
 GET /tarefas/pesquisar/:id          controllers.Servico.pesquisar(id: Long)

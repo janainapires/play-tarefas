@@ -4,7 +4,7 @@
 		module="tarefas$sources"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20180706092253"
+		publication="20180709112519"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

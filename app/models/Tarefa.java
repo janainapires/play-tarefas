@@ -1,16 +1,14 @@
 package models;
 
-import play.data.validation.Constraints;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Tarefa {
+    @Id
     public Long id;
-
-
     public String titulo;
-
-
     public String descricao;
-
     public boolean completada;
 
     public Long getId() {

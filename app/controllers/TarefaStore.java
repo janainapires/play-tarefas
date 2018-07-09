@@ -1,17 +1,13 @@
 package controllers;
 
+import io.ebean.Ebean;
+import io.ebean.Finder;
+import io.ebean.Model;
 import models.Tarefa;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-public class TarefaStore {
+public class TarefaStore extends Model {
 
     private static TarefaStore instance;
-
-    private Map<Long, Tarefa> tarefas = new HashMap<Long, Tarefa>();
 
     public static TarefaStore getInstance() {
         if (instance == null) {
@@ -21,30 +17,24 @@ public class TarefaStore {
     }
 
     public Tarefa addTarefa(Tarefa tarefa) {
-        Long id = Long.parseLong(String.valueOf(tarefas.size()));
-        tarefa.setId(id);
-        tarefas.put(id, tarefa);
+        Ebean.save(tarefa);
         return tarefa;
     }
 
     public Tarefa getTarefa(Long id) {
-        return tarefas.get(id);
+        return Ebean.find(Tarefa.class, id);
     }
 
-    public Set<Tarefa> getAllTarefas() {
-        return new HashSet<>(tarefas.values());
+    public Finder<Long, Tarefa> getAllTarefas() {
+        return new Finder<Long, Tarefa>(Tarefa.class);
     }
 
     public Tarefa updateTarefa(Tarefa tarefa) {
-        Long id = tarefa.getId();
-        if (tarefas.containsKey(id)) {
-            tarefas.put(id, tarefa);
-            return tarefa;
-        }
-        return null;
+        Ebean.update(tarefa);
+        return tarefa;
     }
 
     public boolean deleteTarefa(Long id) {
-        return tarefas.remove(id) != null;
+        return Ebean.delete(getTarefa(id));
     }
 }

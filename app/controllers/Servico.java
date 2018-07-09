@@ -1,33 +1,17 @@
 package controllers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Tarefa;
-import play.data.Form;
-import play.data.FormFactory;
 import play.libs.Json;
-import play.mvc.BodyParser;
 import play.mvc.Controller;
-import play.mvc.Http;
 import play.mvc.Result;
 import utils.Util;
 
-import javax.inject.Inject;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Servico extends Controller {
-
-    Map<Long, Tarefa> tarefas = new HashMap<Long, Tarefa>();
-
-    @Inject
-    private FormFactory formFactory;
-
-
     public  Result adicionar() {
         JsonNode json = request().body().asJson();
         if (json == null){
@@ -79,11 +63,10 @@ public class Servico extends Controller {
     }
 
     public  Result listar () {
-        Set<Tarefa> result = TarefaStore.getInstance().getAllTarefas();
+        Set<Tarefa> result = TarefaStore.getInstance().getAllTarefas().all().stream().collect(Collectors.toSet());
         ObjectMapper mapper = new ObjectMapper();
 
         JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
         return ok(Util.createResponse(jsonData, true));
     }
-
 }
