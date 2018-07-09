@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Tarefa;
+import play.data.Form;
+import play.data.FormFactory;
 import play.libs.Json;
 import play.mvc.BodyParser;
 import play.mvc.Controller;
@@ -13,6 +15,7 @@ import play.mvc.Http;
 import play.mvc.Result;
 import utils.Util;
 
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -20,6 +23,9 @@ import java.util.Set;
 public class Servico extends Controller {
 
     Map<Long, Tarefa> tarefas = new HashMap<Long, Tarefa>();
+
+    @Inject
+    private FormFactory formFactory;
 
 
     public  Result adicionar() {

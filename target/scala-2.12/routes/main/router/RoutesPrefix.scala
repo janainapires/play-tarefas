@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/wkp_play/tarefas/conf/routes
-// @DATE:Fri Jul 06 13:07:55 GMT-03:00 2018
+// @DATE:Mon Jul 09 08:44:25 GMT-03:00 2018
 
 
 package router {

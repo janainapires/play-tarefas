@@ -1,9 +1,16 @@
 package models;
 
+import play.data.validation.Constraints;
+
 public class Tarefa {
     public Long id;
+
+
     public String titulo;
+
+
     public String descricao;
+
     public boolean completada;
 
     public Long getId() {
