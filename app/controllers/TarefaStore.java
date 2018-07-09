@@ -35,6 +35,13 @@ public class TarefaStore extends Model {
     }
 
     public boolean deleteTarefa(Long id) {
-        return Ebean.delete(getTarefa(id));
+        Tarefa tarefa = getTarefa(id);
+        boolean retorno = false;
+
+        if (tarefa != null){
+            retorno = Ebean.delete(tarefa);
+        }
+
+        return retorno;
     }
 }

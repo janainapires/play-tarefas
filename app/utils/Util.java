@@ -13,9 +13,8 @@ public class Util {
         result.put("Sucesso: ", ok);
         if (response instanceof String) {
             result.put("body", (String) response);
-        }
-        else {
-            result.put("body", (JsonNode) response);
+        }else {
+            result.set("body", (JsonNode) response);
         }
 
         return result;

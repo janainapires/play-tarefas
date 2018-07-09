@@ -1,13 +1,13 @@
-2018-07-09 11:46:55,812 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
-2018-07-09 11:46:56,455 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2018-07-09 11:46:56,634 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:postgresql://localhost:3775/playtcedb
-2018-07-09 11:46:57,099 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/jcosta/eclipse-workspace/play-tarefas/target/scala-2.12/classes/application.conf: 47: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
-2018-07-09 11:46:57,305 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2018-07-09 12:23:32,401 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+2018-07-09 12:23:33,062 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2018-07-09 12:23:33,254 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:postgresql://localhost:3775/playtcedb
+2018-07-09 12:23:33,395 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/Users/jcosta/eclipse-workspace/play-tarefas/target/scala-2.12/classes/application.conf: 47: applyEvolutions.default is deprecated, use play.evolutions.db.default.autoApply instead
+2018-07-09 12:23:33,913 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2018-07-09 11:46:57,356 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
-2018-07-09 11:48:38,905 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-5 - Stopping server...
-2018-07-09 11:48:38,928 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2018-07-09 12:23:33,965 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
+2018-07-09 12:24:00,095 [INFO] from play.core.server.AkkaHttpServer in pool-7-thread-6 - Stopping server...
+2018-07-09 12:24:00,129 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
