@@ -4,7 +4,7 @@
 		module="play-tarefas-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20180709121609"
+		publication="20180710100413"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

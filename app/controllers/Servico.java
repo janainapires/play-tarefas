@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class Servico extends Controller {
     public  Result adicionar() {
         JsonNode json = request().body().asJson();
+
         if (json == null){
             return badRequest(Util.createResponse(
                     "Expecting Json data", false));
@@ -21,7 +22,7 @@ public class Servico extends Controller {
         Tarefa tarefa = TarefaStore.getInstance().addTarefa(
                 (Tarefa) Json.fromJson(json, Tarefa.class));
         JsonNode jsonObject = Json.toJson(tarefa);
-        return created(Util.createResponse(jsonObject, true));
+        return created(jsonObject);
 
     }
 
@@ -42,7 +43,7 @@ public class Servico extends Controller {
                     "Tarefa com id:" + id + " não encontrada", false));
         }
         JsonNode jsonObjects = Json.toJson(tarefa);
-        return ok(Util.createResponse(jsonObjects, true));
+        return ok(jsonObjects);
     }
 
     public  Result atualizar() {
@@ -59,7 +60,7 @@ public class Servico extends Controller {
         }
 
         JsonNode jsonObject = Json.toJson(tarefa);
-        return ok(Util.createResponse(jsonObject, true));
+        return ok(jsonObject);
     }
 
     public  Result listar () {
@@ -67,6 +68,6 @@ public class Servico extends Controller {
         ObjectMapper mapper = new ObjectMapper();
 
         JsonNode jsonData = mapper.convertValue(result, JsonNode.class);
-        return ok(Util.createResponse(jsonData, true));
+        return ok(jsonData);
     }
 }
